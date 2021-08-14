@@ -62,6 +62,54 @@ function main() {
   	const buffer = initBuffers(gl);
   	var buffers = {position : buffer};
 
+	// Tell WebGL how to pull out the positions from the position
+	// buffer into the vertexPosition attribute
+	{
+		const numComponents = 3;
+		const type = gl.FLOAT;
+		const normalize = false;
+		const stride = 6 * 4;
+		const offset = 0;
+		gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+		gl.vertexAttribPointer(
+			programInfo.attribLocations.vertexPosition,
+			numComponents,
+			type,
+			normalize,
+			stride,
+			offset);
+		gl.enableVertexAttribArray(
+			programInfo.attribLocations.vertexPosition);
+	}
+
+	// Tell WebGL how to pull out the colors from the color buffer
+	// into the vertexColor attribute.
+	{
+		const numComponents = 3;
+		const type = gl.FLOAT;
+		const normalize = false;
+		const stride = 6 * 4;
+		const offset = 3 * 4;
+		gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+		gl.vertexAttribPointer(
+			programInfo.attribLocations.vertexColor,
+			numComponents,
+			type,
+			normalize,
+			stride,
+			offset);
+		gl.enableVertexAttribArray(
+			programInfo.attribLocations.vertexColor);
+	}
+	const positions = [
+		// positions     // colors
+		0.5,  0.5, 0.0,  1.0, 0.0, 0.0,  // top right
+		0.5, -0.5, 0.0,  0.0, 1.0, 0.0,  // bottom right
+		-0.5,  0.5, 0.0,  1.0, 1.0, 1.0,   // top left
+		-0.5, -0.5, 0.0,  0.0, 0.0, 1.0,  // bottom left
+	];
+	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
   	// Draw the scene
   	drawScene(gl, programInfo, buffers);
 }
@@ -96,7 +144,6 @@ function initBuffers(gl) {
   	// shape. We do this by creating a Float32Array from the
   	// JavaScript array, then use it to fill the current buffer.
 
-  	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
   	return positionBuffer;
 }
@@ -112,45 +159,7 @@ function drawScene(gl, programInfo, buffers) {
 
   	gl.clear(gl.COLOR_BUFFER_BIT);
 
-  	// Tell WebGL how to pull out the positions from the position
-  	// buffer into the vertexPosition attribute
-  	{
-    	const numComponents = 3;
-    	const type = gl.FLOAT;
-    	const normalize = false;
-    	const stride = 6 * 4;
-    	const offset = 0;
-    	gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
-    	gl.vertexAttribPointer(
-        	programInfo.attribLocations.vertexPosition,
-        	numComponents,
-        	type,
-        	normalize,
-        	stride,
-        	offset);
-    	gl.enableVertexAttribArray(
-        	programInfo.attribLocations.vertexPosition);
-  	}
 
-  	// Tell WebGL how to pull out the colors from the color buffer
-  	// into the vertexColor attribute.
-  	{
-    	const numComponents = 3;
-    	const type = gl.FLOAT;
-    	const normalize = false;
-    	const stride = 6 * 4;
-    	const offset = 3 * 4;
-    	gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
-    	gl.vertexAttribPointer(
-        	programInfo.attribLocations.vertexColor,
-        	numComponents,
-        	type,
-        	normalize,
-        	stride,
-        	offset);
-    	gl.enableVertexAttribArray(
-        	programInfo.attribLocations.vertexColor);
-  	}
 
   	// Tell WebGL to use our program when drawing
 
