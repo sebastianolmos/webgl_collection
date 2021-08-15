@@ -85,15 +85,10 @@ class SimpleColorShader {
         precision highp float;        
         
       	varying lowp vec3 ourColor;
-      	uniform int colorRed;
     
       	void main()
       	{   
-      	    vec3 finalColor = ourColor;
-      	    if (colorRed == 1){
-      	        finalColor = vec3(1.0, 0.0, 0.0);
-      	    }
-          	gl_FragColor = vec4(finalColor, 1.0);
+          	gl_FragColor = vec4(ourColor, 1.0);
       	}
     	`;
         this.gl = gl;
@@ -106,7 +101,7 @@ class SimpleColorShader {
         this.gl.enableVertexAttribArray(this.attribLocations.vertexColor);
     }
 
-    drawCall(gpuShape){
+    drawCall(gpuShape, drawMode){
         this.gl.bindBuffer(this.gl.ARRAY_BUFFER, gpuShape.vbo);
         // Position
         this.gl.vertexAttribPointer(
@@ -129,6 +124,6 @@ class SimpleColorShader {
         this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, gpuShape.ebo);
 
         // Do the drawing
-        this.gl.drawElements(this.gl.TRIANGLES, gpuShape.size, this.gl.UNSIGNED_BYTE, 0);
+        this.gl.drawElements(drawMode, gpuShape.size, this.gl.UNSIGNED_BYTE, 0);
     }
 }
