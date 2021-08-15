@@ -37,7 +37,7 @@ function main() {
 		[ 0, 1, 3,  // first Triangle
 			1, 2, 3   // second Triangle
 		]);
-	quadShape.initBuffers(gl, vertices, indices);
+	quadShape.initBuffers(gl, vertices, indices, 6);
 
 	// Lines Shape
 	let lineShape = new GPUShape();
@@ -45,7 +45,7 @@ function main() {
 		[ 0, 1, 1, 3, 3, 0,  // first Triangle
 			1, 2, 2, 3, 3, 1   // second Triangle
 		]);
-	lineShape.initBuffers(gl, vertices, indicesLines);
+	lineShape.initBuffers(gl, vertices, indicesLines, 6);
 
 	// Render the scene
 	let t0 = 0;
