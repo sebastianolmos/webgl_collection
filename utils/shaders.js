@@ -236,6 +236,90 @@ class SimpleTextureShader {
     }
 }
 
+
+class Simple2TextureShader {
+    constructor(gl){
+        const vsSource = `
+      	attribute vec3 aPos;
+      	attribute vec2 aTexCoord;
+      	varying vec2 vTexCoord;
+      	void main()
+      	{
+          	gl_Position = vec4(aPos, 1.0);
+          	
+          	// Pass the texcoord to the fragment shader.
+            vTexCoord = aTexCoord;
+      	}
+    	`;
+        const fsSource = `
+        precision mediump float;       
+        
+      	// Passed in from the vertex shader.
+        varying vec2 vTexCoord;
+        
+        // Textures
+        uniform sampler2D uTexture1;
+        uniform sampler2D uTexture2;
+        
+        uniform float mixValue;
+    
+      	void main()
+      	{   
+            vec4 color0 = texture2D(uTexture1, vTexCoord);
+            vec4 color1 = texture2D(uTexture2, vTexCoord);
+            gl_FragColor = mix(color0, color1, mixValue);
+      	}
+    	`;
+        this.gl = gl;
+        this.shaderProgram = initShaderProgram(gl, vsSource, fsSource);
+        this.attribLocations = {
+            vertexPosition: gl.getAttribLocation(this.shaderProgram, 'aPos'),
+            vertexCoord: gl.getAttribLocation(this.shaderProgram, 'aTexCoord'),
+        };
+        this.uniformLocations = {
+            texture1: gl.getUniformLocation(this.shaderProgram, 'uTexture1'),
+            texture2: gl.getUniformLocation(this.shaderProgram, 'uTexture2'),
+            mixValue: gl.getUniformLocation(this.shaderProgram, 'mixValue')
+        }
+        this.gl.enableVertexAttribArray(this.attribLocations.vertexPosition);
+        this.gl.enableVertexAttribArray(this.attribLocations.vertexCoord);
+    }
+
+    drawCall(gpuShape, drawMode){
+        this.gl.bindBuffer(this.gl.ARRAY_BUFFER, gpuShape.vbo);
+        // Position
+        this.gl.vertexAttribPointer(
+            this.attribLocations.vertexPosition,
+            3, // numComponents
+            this.gl.FLOAT, // type
+            false, // normalize
+            5 * 4, // stride
+            0); // offset
+        // Color
+        this.gl.vertexAttribPointer(
+            this.attribLocations.vertexCoord,
+            2, // numComponents
+            this.gl.FLOAT, // type
+            false, // normalize
+            5 * 4, // stride
+            3 * 4); // offset
+
+        // Tell the shader to use texture unit 0 for u_texture
+        this.gl.uniform1i(this.uniformLocations.texture1, 0); // texture unit 0
+        this.gl.uniform1i(this.uniformLocations.texture2, 1); // texture unit 0
+        // Set each texture unit to use a particular texture.
+        this.gl.activeTexture(this.gl.TEXTURE0);
+        this.gl.bindTexture(this.gl.TEXTURE_2D, gpuShape.textures[0]);
+        this.gl.activeTexture(this.gl.TEXTURE1);
+        this.gl.bindTexture(this.gl.TEXTURE_2D, gpuShape.textures[1]);
+
+        // Indices
+        this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, gpuShape.ebo);
+        // Do the drawing
+        this.gl.drawElements(drawMode, gpuShape.size, this.gl.UNSIGNED_BYTE, 0);
+    }
+}
+
 class TransformColorShader {
     constructor(gl){
         const vsSource = `

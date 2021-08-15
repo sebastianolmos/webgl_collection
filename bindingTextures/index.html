@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Binding Textures</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="..//webgl.css" type="text/css">
+  <!-- GL Math library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+          integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+          crossorigin="anonymous" defer> </script>
+  <!-- WebGL Lint -->
+  <script src="https://greggman.github.io/webgl-lint/webgl-lint.js"></script>
+  <!-- Shaders functions -->
+  <script src="../utils/shaders.js"></script>
+  <!-- Application code -->
+  <script src="bindingTextures.js" defer></script>
+</head>
+
+<body>
+<!-- Canvas to display the app -->
+<canvas id="glcanvas" width="800" height="800" style="width: 800px; height: 800px;"></canvas>
+<!-- Button to toggle the red color status -->
+<button id="drawMode" >Change draw mode</button>
+<div class="slidecontainer">
+  <input type="range" min="0" max="100" value="50" class="slider" id="mixRange">
+  <p>Mix value: <span id="textValue"></span></p>
+</div>
+</body>
+</html>
