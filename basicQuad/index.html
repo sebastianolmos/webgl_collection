@@ -1,26 +1,89 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Simple Quad</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="./webgl.css" type="text/css">
-    <!-- GL Math library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
-      integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
-      crossorigin="anonymous" defer> </script>
-    <!-- WebGL Lint -->
-    <script src="https://greggman.github.io/webgl-lint/webgl-lint.js"></script>
-    <!-- Shaders functions -->
-    <script src="../utils/shaders.js"></script>
-    <!-- Application code -->
-    <script src="simpleQuad.js" defer></script>
-  </head>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>WebGL Collection</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Simple Quad</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://sebastolmos.com/assets/css/main.css" />
+  <link rel="stylesheet" href="../webgl.css" />
+  <noscript><link rel="stylesheet" href="https://sebastolmos.com/assets/css/noscript.css" /></noscript>
+  <!-- GL Math library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+          integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+          crossorigin="anonymous" defer> </script>
+  <!-- WebGL Lint -->
+  <script src="https://greggman.github.io/webgl-lint/webgl-lint.js"></script>
+  <!-- Shaders functions -->
+  <script src="../utils/shaders.js"></script>
+  <!-- Application code -->
+  <script src="simpleQuad.js" defer></script>
+</head>
+<body class="is-preload">
 
-  <body>
-    <!-- Canvas to display the app -->
-    <canvas id="glcanvas" width="800" height="800" style="width: 800px; height: 800px;"></canvas>
-    <!-- Button to toggle the red color status -->
-    <button id="drawMode" >Change draw mode</button>
-  </body>
+
+<a href="../" id="backB" class="button icon solid fa-chevron-left scrolly">Volver</a>
+<!-- Wrapper -->
+<div id="wrapper">
+  <!-- Header -->
+
+  <!-- Main -->
+  <div id="main">
+
+    <!-- Content -->
+    <section id="content" class="main">
+      <div>
+        <section >
+          <div class="app-desc">
+            <h3>Simple Quad</h3>
+            <p>Muestra un cuadrado básico formado por dos triángulos</p>
+          </div>
+        </section>
+      </div>
+      <div class="sample1">
+          <!-- Canvas to display the app -->
+          <canvas id="glcanvas" width="800" height="800" style="width: 100%;"></canvas>
+      </div>
+      <!-- Button to toggle draw mode -->
+      <div class="inputButtons">
+        <button id="drawMode" class="button">Change draw mode</button>
+      </div>
+      <div class="viewCode">
+        <a href="https://github.com/sebastianolmos/webgl_collection/blob/main/basicQuad/simpleQuad.js" class="vcButton" >Ver código</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <section>
+      <h2>Contacto</h2>
+      <dl class="alt">
+        <dt>Email</dt>
+        <dd><a href="mailto:sebastianolmos@gmail.com">sebastolmos@gmail.com</a></dd>
+      </dl>
+      <ul class="icons">
+        <li><a href="https://github.com/sebastianolmos" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+        <li><a href=" https://www.linkedin.com/in/sebastolmos" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://sebastianolmos.itch.io/" class="icon brands fa-itch-io alt"><span class="label">Itch-io</span></a></li>
+        <li><a href="mailto:sebastianolmos@gmail.com" class="icon solid fa-envelope alt"><span class="label">Mail</span></a></li>
+      </ul>
+    </section>
+    <p class="copyright">&copy; 2021. Sebastian Olmos <a class="home-bottom" href="https://sebastolmos.com/">Home</a></p>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
 </html>

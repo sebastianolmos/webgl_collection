@@ -1,24 +1,90 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>WebGL Collection</title>
-  </head>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>WebGL Collection</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://sebastolmos.com/assets/css/main.css" />
+		<link rel="stylesheet" href="webgl.css" />
+		<noscript><link rel="stylesheet" href="https://sebastolmos.com/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-  <body>
-    <h1>WebGL 1 collection</h1>
-    <form action="./basicQuad/index.html">
-        <input type="submit" value="Simple Quad" />
-    </form>
-    <form action="./transformations/index.html">
-        <input type="submit" value="Transformations" />
-    </form>
-    <form action="./basicTexture/index.html">
-      <input type="submit" value="Simple Texture" />
-    </form>
-    <form action="./bindingTextures/index.html">
-      <input type="submit" value="Binding Texture" />
-    </form>
-    
-  </body>
+
+		<a href="https://sebastolmos.com/" id="backB" class="button icon solid fa-chevron-left scrolly">Volver</a>
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<h1>WebGL Collection</h1>
+						<p>Aplicaciones con diferentes funcionalidades implementadas con WebGL 1.</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="wrapper">
+								<div class="inner alt">
+									<section class="spotlight">
+										<div class="content">
+											<a href="./basicQuad/index.html" class="hlist">Simple Quad</a>
+											<p>Muestra un cuadrado básico formado por dos triángulos</p>
+										</div>
+									</section>
+									<section class="spotlight">
+										<div class="content">
+											<a href="./transformations/index.html" class="hlist">Transformations</a>
+											<p>Muestra cuatro instancias de un cuadrado, aplicando diferentes transformaciones a tiempo real.
+											</p>
+										</div>
+									</section>
+									<section class="spotlight">
+										<div class="content">
+											<a href="./basicTexture/index.html" class="hlist">Simple Texture</a>
+											<p>Muestra simple de una textura aplicada a un cuadrado.
+											</p>
+										</div>
+									</section>
+									<section class="spotlight">
+										<div class="content">
+											<a href="./bindingTextures/index.html" class="hlist">Binding Textures</a>
+											<p>Muestra dos texturas aplicadas a un cuadrado, se puede cambiar el valor con el que se combinan.</p>
+										</div>
+									</section>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section>
+						<h2>Contacto</h2>
+						<dl class="alt">
+							<dt>Email</dt>
+							<dd><a href="mailto:sebastianolmos@gmail.com">sebastolmos@gmail.com</a></dd>
+						</dl>
+						<ul class="icons">
+							<li><a href="https://github.com/sebastianolmos" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							<li><a href=" https://www.linkedin.com/in/sebastolmos" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://sebastianolmos.itch.io/" class="icon brands fa-itch-io alt"><span class="label">Itch-io</span></a></li>
+							<li><a href="mailto:sebastianolmos@gmail.com" class="icon solid fa-envelope alt"><span class="label">Mail</span></a></li>
+						</ul>
+					</section>
+					<p class="copyright">&copy; 2021. Sebastian Olmos <a class="home-bottom" href="https://sebastolmos.com/">Home</a></p>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
