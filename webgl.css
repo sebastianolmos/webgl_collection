@@ -16,6 +16,18 @@ video {
     text-align: center;
 }
 
+#wrapper{
+    width: 32em;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
+}
+
+#footer{
+    width: 32em;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
+}
+
 .sample1{
     width: 32em;
     max-width: calc(100% - 4em);
@@ -35,7 +47,7 @@ video {
     max-width: calc(100% - 4em);
     margin: 0 auto;
     padding-top: 2em;
-    padding-bottom: 3em;
+    padding-bottom: 1em;
 }
 
 a.vcButton{
@@ -53,7 +65,7 @@ a.vcButton{
     font-size: 1.25em;
     height: 2.75em;
     line-height: 2.75em;
-    padding: 0 1.5em;
+    padding: 0;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.4s !important;
